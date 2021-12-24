@@ -1,0 +1,50 @@
+//colors
+$color-white: #fff;
+$color-green-light: #7ed56f;
+$color-green-medium: #55c57a;
+$color-green-dark: #28b485;
+$color-red-light: #d56f6f;
+$color-red-medium: #c55555;
+$color-red-dark: #b42828ad;
+$color-blue-light: #6f71d5;
+$color-blue-medium: #6055c5;
+$color-blue-dark: #282ab4;
+
+$color-gray-50: rgb(230, 243, 241);
+$color-gray-100: rgb(195, 207, 204);
+$color-gray-200: #777;
+$color-gray-300: rgb(86, 99, 99);
+$color-gray-400: rgb(60, 69, 70);
+$color-gray-500: rgb(31, 37, 37);
+$color-gray-600: rgb(26, 31, 32);
+$color-gray-700: rgb(22, 31, 30);
+
+$color-h1-text: white;
+$color-btn-white: white;
+$color-btn-green: #28b485;
+
+$color-black: rgb(0, 0, 0);
+
+//Grid
+
+$grid--width: 114rem;
+$grid__background--color: #eee;
+$grid__gutter--vertical: 8rem;
+$grid__gutter--horizontal: 6rem;
+$grid__gutter--doublehorizontal: 12rem;
+
+$grid__column--background: linear-gradient(
+  to right bottom,
+  $color-red-light,
+  $color-blue-dark
+);
+
+//fontsizes
+$fontsize--normal: 1.6rem;
+
+//card
+$card-height: 60rem;
+
+//story
+
+$circle-element: circle(50% at 50% 50%);

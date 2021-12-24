@@ -1,0 +1,59 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6 rem rgba(0, 0, 0, 0.1);
+  background-color: rgba($color-white, 0.6);
+  border-radius: 0.3rem;
+  padding: 6rem;
+  padding-left: 8rem;
+  font-size: $fontsize--normal;
+  transform: skewX(-12deg);
+  & > * {
+    transform: skewX(12deg);
+  }
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    -webkit-shape-outside: $circle-element;
+    shape-outside: $circle-element; //dafür muss das element floated sein.
+    -webkit-clip-path: $circle-element;
+    clip-path: $circle-element;
+    transform: translateX(-2rem) translateY(-1rem) skewX(12deg);
+    position: relative;
+    overflow: hidden;
+  }
+  &__profilepicture {
+    height: 100%;
+    object-fit: cover;
+    transform: translateX(-4rem) scale(1.4);
+    transition: all 0.5s;
+
+    backface-visibility: hidden;
+  }
+  &__text {
+    transform: skewX(12deg);
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: $color-white;
+    font-size: 1.7rem;
+    text-align: center;
+    transform: translate(-50%, 20%);
+    opacity: 0;
+    transition: all 0.5s;
+  }
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__profilepicture {
+    filter: blur(2px) brightness(80%);
+    transform: translateX(-4rem) scale(1);
+  }
+}

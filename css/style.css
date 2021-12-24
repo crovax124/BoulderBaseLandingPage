@@ -1,0 +1,593 @@
+@charset "UTF-8";
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+}
+
+.heading__primary {
+  color: white;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+}
+.heading__primary--main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  animation: moveInLeft 1s ease-out;
+}
+.heading__primary--sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+  animation: moveInRight 1s ease-out;
+  margin-bottom: 6rem;
+  /* animation-iteration-count: 3; */
+  /* animation-delay: 3s; */
+}
+
+.heading__secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background: linear-gradient(to right bottom, #7ed56f, #28b485);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+  transition: all 0.2s;
+}
+.heading__secondary:hover {
+  transform: skewY(1deg) skewX(5deg) scale(1.1);
+  text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.4);
+}
+
+.heading__titletertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph__description {
+  font-size: 1.6rem;
+}
+.paragraph__description:not(:last-child) {
+  margin-bottom: 3rem;
+}
+
+@keyframes moveInLeft {
+  /*  Keyframes setzen wie bei After effects um trigger wärend diesem zeitpunkt auszulösen*/
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+.u-text--center {
+  text-align: center;
+}
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem;
+}
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem;
+}
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem;
+}
+
+.u-margin-top-small {
+  margin-bottom: 1.5rem;
+}
+
+.u-margin-top-medium {
+  margin-bottom: 4rem;
+}
+
+.u-margin-top-big {
+  margin-bottom: 8rem;
+}
+
+.u-margin-top-huge {
+  margin-bottom: 10rem;
+}
+
+.btn:link, .btn:visited {
+  display: inline-block;
+  /*  ein link ist normalerweise ein inline element, also muss es hier ein block element werden damit es sich mit den anderen im container einreiht aber als Text  */
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 1.5rem 4rem;
+  border-radius: 10rem;
+  transition: all 0.2s;
+  /* mit dem all selector wähle ich alle pseude klassen und css selektoren aus um sie dann zu animieren */
+  position: relative;
+  /* damit der after von hier aus positioniert wird */
+  font-size: 1.6rem;
+}
+.btn:hover {
+  transform: translatey(-0.3rem);
+  box-shadow: 0px 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+.btn:active {
+  transform: translatey(-0.1rem);
+  box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+.btn--white {
+  background-color: white;
+  color: #777;
+}
+.btn--white::after {
+  background-color: white;
+}
+.btn--green {
+  background-color: #28b485;
+  color: #e6f3f1;
+}
+.btn--green::after {
+  background-color: #28b485;
+}
+.btn::after {
+  /* der after selector, baut ein element nach etwas hier genau die gleiche form wie der Button, aber ohne text */
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+.btn--animated {
+  animation: moveInBottom 1s ease-out 0.75s;
+  animation-fill-mode: backwards;
+  /* gibt dem element die eigenschaften der ersten keyframe 0% , position ist wichtig (nach der animation)*/
+}
+.btn-text:link, .btn-text:visited {
+  font-size: 1.6rem;
+  color: #28b485;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 0.1rem solid rgba(40, 180, 133, 0.5);
+  border-right: 0.1rem solid rgba(40, 180, 133, 0.5);
+  text-transform: uppercase;
+  padding: 0.3rem 1rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+.btn-text:hover {
+  background-image: linear-gradient(to left bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8));
+  color: white;
+  box-shadow: 0px 1rem 2rem rgba(0, 0, 0, 0.3);
+  transform: translateY(-0.2rem);
+}
+.btn-text:active {
+  box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  transform: translateY(0);
+}
+
+.composition {
+  position: relative;
+}
+.composition__photo {
+  width: 55%;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+  border-radius: 0.2rem;
+  position: absolute;
+  z-index: 10;
+  transition: all 0.2s;
+  outline-offset: 2rem;
+}
+.composition__photo--p1 {
+  left: 0;
+  top: -2rem;
+}
+.composition__photo--p2 {
+  right: 0;
+  top: 2rem;
+}
+.composition__photo--p3 {
+  left: 20%;
+  top: 10rem;
+}
+.composition__photo:hover {
+  outline: 1.5rem solid rgba(126, 213, 111, 0.5);
+  transform: scale(1.05) translateY(-0.5rem);
+  box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
+  z-index: 20;
+}
+.composition:hover .composition__photo:not(:hover) {
+  transform: scale(0.95);
+}
+
+.feature-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 0.3rem;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  transition: all 0.2s;
+}
+.feature-box__icon {
+  font-size: 6rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  background: linear-gradient(to right bottom, #7ed56f, #28b485);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.feature-box:hover {
+  transform: translatey(-1.5rem) scale(1.05);
+  box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
+}
+
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 60rem;
+}
+.card__side {
+  height: 60rem;
+  transition: all 0.8s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backface-visibility: hidden;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.3);
+}
+.card__side--front {
+  text-align: center;
+  background: #fff;
+}
+.card__side--back {
+  transform: rotateY(180deg);
+}
+.card__side--back-1 {
+  background: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8));
+}
+.card__side--back-2 {
+  background: linear-gradient(to right bottom, rgba(213, 111, 111, 0.8), rgba(180, 40, 40, 0.8));
+}
+.card__side--back-3 {
+  background: linear-gradient(to right bottom, rgba(111, 113, 213, 0.8), rgba(40, 42, 180, 0.8));
+}
+.card:hover .card__side--front {
+  transform: rotateY(-180deg);
+}
+.card:hover .card__side--back {
+  transform: rotateY(0);
+}
+.card__picture {
+  background-size: cover;
+  height: 23rem;
+  background-blend-mode: color-burn;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+}
+.card__picture--1 {
+  background-image: linear-gradient(to right bottom, #7ed56f, #28b485), url(../img/Boulderbase/9W0A9218.jpg);
+}
+.card__picture--2 {
+  background-image: linear-gradient(to right bottom, #d56f6f, #b42828ad), url(../img/Boulderbase/9W0A9083.jpg);
+}
+.card__picture--3 {
+  background-image: linear-gradient(to right bottom, #6f71d5, #282ab4), url(../img/Boulderbase/9W0A9108.jpg);
+}
+.card__heading {
+  font-size: 2.8rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #fff;
+  position: absolute;
+  top: 13rem;
+  right: 2rem;
+  width: 75%;
+}
+.card__heading-span {
+  padding: 1rem 2rem;
+  -webkit-box-decoration-break: clone;
+}
+.card__heading-span--1 {
+  background: linear-gradient(to right bottom, rgba(126, 213, 111, 0.85), rgba(40, 180, 133, 0.85));
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.7);
+  border-radius: 0.3rem;
+}
+.card__heading-span--2 {
+  background: linear-gradient(to right bottom, rgba(213, 111, 111, 0.85), rgba(180, 40, 40, 0.85));
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.7);
+  border-radius: 0.3rem;
+}
+.card__heading-span--3 {
+  background: linear-gradient(to right bottom, rgba(111, 113, 213, 0.85), rgba(40, 42, 180, 0.85));
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.7);
+  border-radius: 0.3rem;
+}
+.card__details {
+  padding: 3rem;
+}
+.card__details ul {
+  list-style: none;
+  width: 80%;
+  margin: 0 auto;
+}
+.card__details ul li {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+.card__details ul li:not(:last-child) {
+  border-bottom: 1px solid #566363;
+}
+.card__cta {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  text-align: center;
+}
+.card__price-box {
+  text-align: center;
+  color: #fff;
+}
+.card__price-box--description-1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.card__price-box--description-2 {
+  font-size: 1.4rem;
+  font-weight: 100;
+  margin-bottom: 0.2rem;
+}
+.card__price-box--value {
+  font-size: 6rem;
+  font-weight: 100;
+}
+
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6 rem rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 0.3rem;
+  padding: 6rem;
+  padding-left: 8rem;
+  font-size: 1.6rem;
+  transform: skewX(-12deg);
+}
+.story > * {
+  transform: skewX(12deg);
+}
+.story__shape {
+  width: 15rem;
+  height: 15rem;
+  float: left;
+  -webkit-shape-outside: circle(50% at 50% 50%);
+  shape-outside: circle(50% at 50% 50%);
+  -webkit-clip-path: circle(50% at 50% 50%);
+  clip-path: circle(50% at 50% 50%);
+  transform: translateX(-2rem) translateY(-1rem) skewX(12deg);
+  position: relative;
+  overflow: hidden;
+}
+.story__profilepicture {
+  height: 100%;
+  object-fit: cover;
+  transform: translateX(-4rem) scale(1.4);
+  transition: all 0.5s;
+  backface-visibility: hidden;
+}
+.story__text {
+  transform: skewX(12deg);
+}
+.story__caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  font-size: 1.7rem;
+  text-align: center;
+  transform: translate(-50%, 20%);
+  opacity: 0;
+  transition: all 0.5s;
+}
+.story:hover .story__caption {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+.story:hover .story__profilepicture {
+  filter: blur(2px) brightness(80%);
+  transform: translateX(-4rem) scale(1);
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.3;
+  overflow: hidden;
+  -webkit-clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+  clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+}
+.bg-video__content {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.header {
+  height: 95vh;
+  /* this is 95% of viewportHeight */
+  background-image: linear-gradient(to left top, rgba(126, 213, 111, 0.7), rgba(40, 180, 133, 0.7)), url(../img/Boulderbase/boulderbasebremen-2020-v2.jpg);
+  background-size: cover;
+  background-position: top;
+  -webkit-clip-path: polygon(0 0, 100% 5vh, 100% 80vh, 0 100%);
+  clip-path: polygon(0 0, 100% 5vh, 100% 80vh, 0 100%);
+  /*  polygon benutzt coordinaten top left top right bottom right bottom left x and y    ein tool zur vereinfachung ist clippy*/
+  position: relative;
+}
+.header__logo {
+  height: 10rem;
+}
+.header__logo--box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+}
+.header__text--box {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*  da die position 50% top und left bei der kante des containers anfängt. kann ich hiermit die position verschieben. also hier um -50% der größe des elements */
+  text-align: center;
+}
+
+.header__logo-box:hover .header__logo {
+  /* animation: moveInRight 1s ease-out;  */
+  /*When we were hovering over the logo and animating it, the logo wanted to move; but when it did, our hover state was lost since the element was no longer under our active mouse.  Essentially, the logo was 'freaking' out because it didn't know whether to animate / move or stay statically positioned, thus, we were left with an ugly, Shrodinger flicker effect.
+
+  When we hover over the container (logo-box) instead, the logo is free to move as intended since our container remains static.  Now, I invite you to hover over the logo-box, then quickly move your cursor out of the boundaries of the box.  You will see the animation end abruptly$this is what was happening to our logo before making our changes. */
+}
+
+.grid__row {
+  max-width: 114rem;
+  margin: 0 auto;
+}
+.grid__row:not(:last-child) {
+  margin-bottom: 8rem;
+}
+.grid__row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.grid__row [class^=grid__col-] {
+  float: left;
+}
+.grid__row [class^=grid__col-]:not(:last-child) {
+  margin-right: 6rem;
+}
+.grid__row .grid__col-1-of-2 {
+  width: calc((100% - 6rem) / 2);
+}
+.grid__row .grid__col-1-of-3 {
+  width: calc((100% - (2 *6rem)) / 3);
+}
+.grid__row .grid__col-2-of-3 {
+  width: calc(
+        ((100% - (2 *6rem)) / 3) * 2 + 6rem
+      );
+}
+.grid__row .grid__col-1-of-4 {
+  width: calc((100% - (3 *6rem)) / 4);
+}
+.grid__row .grid__col-2-of-4 {
+  width: calc((100% - 6rem) / 4 * 2);
+}
+.grid__row .grid__col-3-of-4 {
+  width: calc((100% - (3 *6rem)) / 4 * 3 + (2 *6rem));
+}
+
+.section__about {
+  background-color: #e6f3f1;
+  padding: 30rem 0 40rem 0;
+  margin-top: -15vh;
+}
+
+.section-features {
+  padding: 35rem 0;
+  background-image: linear-gradient(to left top, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/Boulderbase/9W0A9154.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: -15rem;
+  transform: skewY(-7deg);
+}
+.section-features > * {
+  transform: skewY(7deg);
+}
+
+.section-angebote {
+  background-color: #e6f3f1;
+  padding: 40rem 0 15rem 0;
+  margin-top: -12vh;
+  -webkit-clip-path: polygon(0 10%, 100% 0, 100% 80%, 0 100%);
+  clip-path: polygon(0 10%, 100% 0, 100% 89.7%, 0 100%);
+}
+
+.section-stories {
+  padding: 30rem 0;
+  position: relative;
+  top: -15.84rem;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,88 @@
+.btn {
+  &:link,
+  &:visited {
+    display: inline-block; /*  ein link ist normalerweise ein inline element, also muss es hier ein block element werden damit es sich mit den anderen im container einreiht aber als Text  */
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
+    transition: all 0.2s; /* mit dem all selector wähle ich alle pseude klassen und css selektoren aus um sie dann zu animieren */
+    position: relative; /* damit der after von hier aus positioniert wird */
+    font-size: $fontsize--normal;
+  }
+  &:hover {
+    transform: translatey(-0.3rem);
+    box-shadow: 0px 1rem 2rem rgba($color-black, 0.2);
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+  &:active {
+    transform: translatey(-0.1rem);
+    box-shadow: 0px 0.5rem 1rem rgba($color-black, 0.2);
+  }
+  &--white {
+    background-color: $color-btn-white;
+    color: $color-gray-200;
+    &::after {
+      background-color: $color-btn-white;
+    }
+  }
+  &--green {
+    background-color: $color-btn-green;
+    color: $color-gray-50;
+    &::after {
+      background-color: $color-btn-green;
+    }
+  }
+
+  &::after {
+    /* der after selector, baut ein element nach etwas hier genau die gleiche form wie der Button, aber ohne text */
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    animation: moveInBottom 1s ease-out 0.75s;
+    animation-fill-mode: backwards; /* gibt dem element die eigenschaften der ersten keyframe 0% , position ist wichtig (nach der animation)*/
+  }
+  &-text {
+    &:link,
+    &:visited {
+      font-size: $fontsize--normal;
+      color: $color-green-dark;
+      display: inline-block;
+      text-decoration: none;
+      border-bottom: 0.1rem solid rgba($color-green-dark, 0.5);
+      border-right: 0.1rem solid rgba($color-green-dark, 0.5);
+      text-transform: uppercase;
+      padding: 0.3rem 1rem;
+      border-radius: 4px;
+
+      transition: all 0.2s;
+    }
+    &:hover {
+      background-image: linear-gradient(
+        to left bottom,
+        rgba($color-green-light, 0.8),
+        rgba($color-green-dark, 0.8)
+      );
+      color: $color-btn-white;
+      box-shadow: 0px 1rem 2rem rgba($color-black, 0.3);
+      transform: translateY(-0.2rem);
+    }
+    &:active {
+      box-shadow: 0px 0.5rem 1rem rgba($color-black, 0.3);
+      transform: translateY(0);
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "naturetours",
+  "description": "landing page for Nature Tours",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "sass --watch scss/style.scss css/style.css",
+    "autocompile:sass": "sass --watch scss/:css/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crovax124/NatureToursCSSPractise.git"
+  },
+  "author": "Eric Isensee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crovax124/NatureToursCSSPractise/issues"
+  },
+  "homepage": "https://github.com/crovax124/NatureToursCSSPractise#readme",
+  "devDependencies": {
+    "sass": "^1.45.0"
+  }
+}
