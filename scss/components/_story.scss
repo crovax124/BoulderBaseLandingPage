@@ -3,11 +3,12 @@
   margin: 0 auto;
   box-shadow: 0 3rem 6 rem rgba(0, 0, 0, 0.1);
   background-color: rgba($color-white, 0.6);
-  border-radius: 0.3rem;
+  border-radius: $border-radius;
   padding: 6rem;
   padding-left: 8rem;
   font-size: $fontsize--normal;
   transform: skewX(-12deg);
+
   & > * {
     transform: skewX(12deg);
   }
@@ -29,7 +30,6 @@
     object-fit: cover;
     transform: translateX(-4rem) scale(1.4);
     transition: all 0.5s;
-
     backface-visibility: hidden;
   }
   &__text {
