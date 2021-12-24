@@ -1,6 +1,6 @@
 {
-  "name": "naturetours",
-  "description": "landing page for Nature Tours",
+  "name": "BoulderbaseBremen",
+  "description": "Landing Page für die Boulderbase Bremen",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/crovax124/NatureToursCSSPractise.git"
+    "url": "git+https://github.com/crovax124/BoulderBaseLandingPage"
   },
   "author": "Eric Isensee",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/crovax124/NatureToursCSSPractise/issues"
+    "url": "https://github.com/crovax124/BoulderBaseLandingPage/issues"
   },
-  "homepage": "https://github.com/crovax124/NatureToursCSSPractise#readme",
+  "homepage": "https://github.com/crovax124/BoulderBaseLandingPage#readme",
   "devDependencies": {
     "sass": "^1.45.0"
   }
