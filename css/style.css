@@ -145,7 +145,7 @@ body {
   margin-bottom: 10rem;
 }
 
-.btn:link, .btn:visited {
+.btn, .btn:link, .btn:visited {
   display: inline-block;
   /*  ein link ist normalerweise ein inline element, also muss es hier ein block element werden damit es sich mit den anderen im container einreiht aber als Text  */
   text-decoration: none;
@@ -157,6 +157,8 @@ body {
   position: relative;
   /* damit der after von hier aus positioniert wird */
   font-size: 1.6rem;
+  border: none;
+  cursor: pointer;
 }
 .btn:hover {
   transform: translatey(-0.3rem);
@@ -166,7 +168,7 @@ body {
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
 }
-.btn:active {
+.btn:active, .btn:focus {
   transform: translatey(-0.1rem);
   box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
@@ -522,6 +524,46 @@ body {
   visibility: hidden;
   transform: translateY(-4rem);
 }
+.form__radio-group {
+  width: 49%;
+  display: inline-block;
+}
+.form__radio-input {
+  display: none;
+}
+.form__radio-label {
+  font-size: 1.6rem;
+  cursor: pointer;
+  position: relative;
+  padding-left: 4.5rem;
+}
+.form__radio-button {
+  height: 3rem;
+  width: 3rem;
+  border: 0.5rem solid #28b485;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: -0.4rem;
+}
+.form__radio-button::after {
+  content: "";
+  display: block;
+  height: 1.3rem;
+  width: 1.3rem;
+  border-radius: 50%;
+  background-color: #28b485;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
+  opacity: 1;
+}
 
 .header {
   height: 95vh;
@@ -595,6 +637,54 @@ body {
 }
 .grid__row .grid__col-3-of-4 {
   width: calc((100% - (3 *6rem)) / 4 * 3 + (2 *6rem));
+}
+
+.footer {
+  background-color: #1a1f20;
+  padding: 10rem 0;
+  font-size: 1.4rem;
+  color: #c3cfcc;
+}
+.footer__logo-box {
+  text-align: center;
+}
+.footer__logo {
+  width: 15rem;
+  height: auto;
+}
+.footer__navigation {
+  border-top: 0.1rem solid #566363;
+  padding-top: 2rem;
+  display: inline-block;
+}
+.footer__list {
+  list-style: none;
+}
+.footer__item {
+  display: inline-block;
+}
+.footer__item:not(:last-child) {
+  margin-right: 1.5rem;
+}
+.footer__link:link, .footer__link:visited {
+  color: #c3cfcc;
+  background-color: #1a1f20;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  transition: all 0.2s;
+}
+.footer__link:hover, .footer__link:active {
+  color: #28b485;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+  transform: rotate(2deg) scale(1.02);
+}
+.footer__copyright {
+  border-top: 0.1rem solid #566363;
+  padding-top: 2rem;
+  display: inline-block;
+  width: 80%;
+  float: right;
 }
 
 .section__about {
